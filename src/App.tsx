@@ -18,15 +18,15 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <TagsInput
-        onBlur={handleSeted}
+        // onBlur={handleSeted}
         onSelectTags={handleSelecetedTags}
-        fullWidth={true}
-        variant="outlined"
-        id="tags"
-        name="tags"
+        // fullWidth={true}
+        // variant="outlined"
+        // id="tags"
+        // name="tags"
         // placeholder="add Tags"
-        placeholder={handleSeted}
-        label="tags"
+        // placeholder={handleSeted}
+        // label="tags"
         tags={tags}
       />
     </div>
