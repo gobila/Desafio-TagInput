@@ -3,7 +3,7 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{ts,tsx,js,jsx}',
     '!<rootDir>/src/state/context/**/{repository,index}.{js,ts}',
-    '!**/*.d.ts'
+    '!**/*.d.ts',
   ],
   coveragePathIgnorePatterns: [
     '<rootDir>/src/bootstrap.tsx',
@@ -17,18 +17,16 @@ module.exports = {
   ],
   coverageDirectory: 'coverage',
   setupFilesAfterEnv: ['<rootDir>/src/jest-setup.ts'],
-  testPathIgnorePatterns: [
-    '<rootDir>/node_modules/',
-  ],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/'],
   testEnvironment: 'jsdom',
   transform: {
     '.+\\.(js|jsx)$': 'babel-jest',
     '.+\\.(ts|tsx)$': 'ts-jest',
-    '\\.svg$': 'svg-jest'
+    '\\.svg$': 'svg-jest',
   },
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1',
     '.+\\.(jpg|jpeg|png|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/src/fileMock.js',
-    '.+\\.scss$': 'identity-obj-proxy'
-  }
+    '.+\\.scss$': 'identity-obj-proxy',
+  },
 }

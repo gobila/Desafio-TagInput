@@ -6,8 +6,8 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'scss'],
     alias: {
-      '@': path.join(__dirname, '..', 'src')
-    }
+      '@': path.join(__dirname, '..', 'src'),
+    },
   },
   module: {
     rules: [
@@ -26,7 +26,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/index.html'
+      template: './public/index.html',
     }),
-  ]
+  ],
 }
