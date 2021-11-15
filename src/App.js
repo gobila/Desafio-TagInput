@@ -1,4 +1,3 @@
-import { Console } from 'console'
 import React, { useState } from 'react'
 import EmailList from './components/EmailList'
 import TagsInput from './components/TagsInput'

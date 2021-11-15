@@ -13,3 +13,4 @@
 6 - preciso configurar o CI do git
 
 7 - pensei em usar o YUP para fazer a validaação dos campos mas não funcionou como eu esperava, logo depois de muito bater a cabeça a solução mais eficiente foi criar alguns laços ifs com uma validação via regex
+7.1 - separa a validação como um hook 

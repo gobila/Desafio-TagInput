@@ -1,10 +1,8 @@
-import { TagService } from '@/service/TagService'
 import { Chip, TextField } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { handleDelete } from './deleteService'
 
-export default function TagsInput({ tags, changeValue, deleting, errors }, props) {
+export default function TagsInput({ tags, changeValue, deleting, errors }) {
   const [emailTags, setEmailTags] = useState([])
   const deleted = deleting
 
@@ -45,4 +43,5 @@ TagsInput.propTypes = {
   tags: PropTypes.array,
   changeValue: PropTypes.func,
   deleting: PropTypes.func,
+  errors: PropTypes.string,
 }
