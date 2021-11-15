@@ -13,7 +13,7 @@ export default function TagsInput({ tags, changeValue, deleting, errors }) {
   // console.log(errors)
 
   return (
-    <>
+    <div>
       <TextField
         onBlur={changeValue}
         fullWidth
@@ -32,7 +32,7 @@ export default function TagsInput({ tags, changeValue, deleting, errors }) {
           )),
         }}
       />
-    </>
+    </div>
   )
 }
 TagsInput.defaultProps = {

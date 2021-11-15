@@ -4,12 +4,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'scss'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', 'scss'],
     alias: {
       '@': path.join(__dirname, '..', 'src'),
     },
   },
   module: {
+    // loaders: [
+    //   {exclude: ['node_modules'], loader: 'babel', test: /\.jsx?$/},
+    //   {loader: 'style-loader!css-loader', test: /\.css$/},
+    //   {loader: 'url-loader', test: /\.gif$/},
+    //   {loader: 'file-loader', test: /\.(ttf|eot|svg)$/},
+    // ],
     rules: [
       {
         test: /\.(js|jsx|tsx|ts)$/,
