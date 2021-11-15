@@ -11,5 +11,6 @@ module.exports = merge(common, {
     host: '0.0.0.0',
     historyApiFallback: true,
     disableHostCheck: true,
+    watchContentBase: true,
   },
 })
