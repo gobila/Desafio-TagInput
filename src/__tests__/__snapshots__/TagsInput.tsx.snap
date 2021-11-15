@@ -5,6 +5,7 @@ exports[`TagsInput Component cria o snapshot do component 1`] = `
   <div>
     <div
       class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+      tags=""
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
