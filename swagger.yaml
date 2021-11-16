@@ -116,7 +116,7 @@ paths:
         type: "string"
         format: uuid
       - in: body
-        name: body
+        # name: body
         required: true
         schema:
           $ref: "#/definitions/MailingList"
