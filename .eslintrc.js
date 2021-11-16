@@ -19,7 +19,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint'],
-  ignorePatterns: ['config', 'src/codigoRef'],
+  ignorePatterns: ['config', 'codigoRef'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
   },

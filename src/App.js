@@ -1,12 +1,14 @@
-import { exists } from 'fs'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import EmailList from './components/EmailList'
 import TagsInput from './components/TagsInput'
 import { useValidation } from './infra/hooks/validation'
+import { EmailApi } from './service/EmailApi'
 
 function App() {
   // const [tag, setTag] = useState(['contato@rarolabs.com.br', 'nao-responda@rarolabs.com.br'])
-  const [tag, setTag] = useState([])
+  const emailApi = EmailApi
+  const [initTags, setInitTags] = useState([])
+  const [tag, setTag] = useState(initTags)
   const [errors, setErrors] = useState('')
   // contato@rarolabs.com.br;nao-responda@rarolabs.com.br
 
@@ -27,6 +29,10 @@ function App() {
     setTag([...newList])
     console.log(newList)
   }
+  useEffect(async () => {
+    const getEmail = await emailApi.getEmails()
+    setInitTags([...getEmail.emails])
+  }, [])
 
   return (
     <>
@@ -36,7 +42,8 @@ function App() {
         deleting={(item) => handleDelete(item)}
         errors={errors}
       />
-      <EmailList emails={tag} />
+      <EmailList initEmails={initTags} />
+      {/* <p>{tag}</p>adasd */}
     </>
   )
 }
