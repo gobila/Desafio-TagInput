@@ -17,7 +17,7 @@ export default function TagsInput({ tags, changeValue, deleting, errors }) {
       <TextField
         tags={emailTags}
         onBlur={changeValue}
-        fullWidth
+        // fullWidth
         variant="outlined"
         id="emailsTags"
         name="email"
