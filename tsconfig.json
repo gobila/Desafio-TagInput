@@ -24,8 +24,9 @@
     "src",
     "custom.d.ts",
     "src/jest-setup.ts"
-  ],
+, "codigoRef"  ],
   "exclude": [
-    "src/main/test/cypress"
+    "src/main/test/cypress",
+    "codigoRef"
   ]
 }
