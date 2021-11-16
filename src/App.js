@@ -22,8 +22,7 @@ function App() {
     }
   }
 
-  console.log(errors)
-  const handleDelete = (item) => () => {
+  const handleDelete = (item) => {
     const newList = tag.filter((listItem) => listItem !== item)
     setTag([...newList])
     console.log(newList)

@@ -4,7 +4,7 @@ exports[`TagsInput Component cria o snapshot do component 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+      class="MuiFormControl-root MuiTextField-root"
       tags=""
     >
       <label
@@ -15,7 +15,7 @@ exports[`TagsInput Component cria o snapshot do component 1`] = `
         Email
       </label>
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart"
       >
         <fieldset
           aria-hidden="true"
