@@ -1,21 +1,24 @@
+import { exists } from 'fs'
 import React, { useState } from 'react'
 import EmailList from './components/EmailList'
 import TagsInput from './components/TagsInput'
+import { useValidation } from './infra/hooks/validation'
 
 function App() {
+  // const [tag, setTag] = useState(['contato@rarolabs.com.br', 'nao-responda@rarolabs.com.br'])
   const [tag, setTag] = useState([])
   const [errors, setErrors] = useState('')
+  // contato@rarolabs.com.br;nao-responda@rarolabs.com.br
 
   const handleTag = (e) => {
     const inputValue = e.target.value
-    const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
-    if (inputValue.length < 1 && tag.length === 0) {
-      setErrors('insira um email')
-    } else if (inputValue && !regex.test(inputValue)) {
-      setErrors('insira um email valido')
-    } else if (inputValue && regex.test(inputValue)) {
-      setTag([...tag, inputValue.toLowerCase()])
-      setErrors('')
+    const { valid } = useValidation(inputValue, tag)
+    const { emails } = useValidation(inputValue, tag)
+    const { errors } = useValidation(inputValue, tag)
+    if (valid) {
+      setTag([...tag, ...emails])
+    } else {
+      setErrors(errors)
     }
   }
 
@@ -28,7 +31,12 @@ function App() {
 
   return (
     <>
-      <TagsInput tags={tag} changeValue={handleTag} deleting={handleDelete} errors={errors} />
+      <TagsInput
+        tags={tag}
+        changeValue={handleTag}
+        deleting={(item) => handleDelete(item)}
+        errors={errors}
+      />
       <EmailList emails={tag} />
     </>
   )

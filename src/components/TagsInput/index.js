@@ -17,7 +17,7 @@ export default function TagsInput({ tags, changeValue, deleting, errors }) {
       <TextField
         tags={emailTags}
         onBlur={changeValue}
-        fullWidth
+        // fullWidth
         variant="outlined"
         id="emailsTags"
         name="email"
@@ -29,7 +29,7 @@ export default function TagsInput({ tags, changeValue, deleting, errors }) {
         // {...props}
         InputProps={{
           startAdornment: emailTags.map((item) => (
-            <Chip key={item} tabIndex={-1} label={item} onDelete={() => deleted(item)} />
+            <Chip key={item} tabIndex={-1} label={item} onDelete={deleted(item)} />
           )),
         }}
       />
