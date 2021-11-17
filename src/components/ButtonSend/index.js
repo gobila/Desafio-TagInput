@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Button } from '@material-ui/core'
 import './styles'
 import { EmailApi } from '@/service/EmailApi'
+import PropTypes from 'prop-types'
 
-export default function ButtonSend({ dados, emails }) {
+export default function ButtonSend({ emails }) {
   const [message, setMessage] = useState(false)
   const [data, setData] = useState([])
   const [sendData, setSendData] = useState([])
@@ -49,4 +50,15 @@ function List({ emailList }) {
       ))}
     </ul>
   )
+}
+
+ButtonSend.defaultProps = {
+  emails: [],
+}
+
+ButtonSend.propTypes = {
+  emails: PropTypes.array,
+}
+List.propTypes = {
+  emailList: PropTypes.array.isRequired,
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import EmailList from './components/EmailList'
 import TagsInput from './components/TagsInput'
-import ButtonFake from './components/ButtonFake'
 import { useValidation } from './infra/hooks/validation'
 import { EmailApi } from './service/EmailApi'
 import './test.scss'

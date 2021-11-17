@@ -1,7 +1,6 @@
 import { HTTPClient } from '@/infra/httpClient'
-import { STATUS_CODES } from 'http'
 
-const token = '56b17ef7-5f58-4e63-a717-3e6489cebd94'
+const token = process.env.token;
 const BASE_URL = 'http://localhost:4010/mailing-lists'
 const id = '54ef959d-4d7a-bd1e-2495-947fb0ffde7b'
 export const EmailApi = {
