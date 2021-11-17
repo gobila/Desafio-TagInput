@@ -1,7 +1,6 @@
 import { Button, Chip, TextField } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { withStyles } from '@material-ui/core/styles'
 import './styles/index.scss'
 
 export default function TagsInput({ tags, changeValue, deleting, errors, onClick }) {
@@ -12,27 +11,17 @@ export default function TagsInput({ tags, changeValue, deleting, errors, onClick
     setEmailTags(tags)
   }, [tags])
 
-  // console.log(errors)
-  const styles = {
-    root: {
-      background: 'black',
-    },
-    input: {
-      color: 'red',
-    },
-  }
   return (
     <div>
       <TextField
         tags={emailTags}
-        onBlur={changeValue}
         fullWidth
+        onBlur={changeValue}
         variant="outlined"
         id="emailsTags"
         name="email"
         label="Email"
         placeholder="add e-mails"
-        // inputRef={register}
         error={errors}
         helperText={errors ? errors : ' '}
         InputProps={{
@@ -42,10 +31,10 @@ export default function TagsInput({ tags, changeValue, deleting, errors, onClick
               className="tagInput__chip"
               style={{ backgroundColor: '#4fa9f1', color: '#FFF' }}
               key={item}
+              data-testid="test-id"
               tabIndex={-1}
               label={item}
               onDelete={() => deleted(item)}
-              // color="primary"
             />
           )),
         }}

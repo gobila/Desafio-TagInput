@@ -1,0 +1,17 @@
+.buttonSend{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  &__alert{
+    margin-top: 15px;
+    color: red;
+  }
+  &-cancel{
+    background-color: tomato !important;
+  }
+  &-confirm{
+    background-color: skyblue !important;
+  }
+}

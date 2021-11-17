@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { EmailApi } from '@/service/EmailApi'
 import { Chip, TextField } from '@material-ui/core'
 import './styles'
+import ButtonSend from '../ButtonSend'
 
 export default function EmailList({ initEmails }) {
   const [dados, setDados] = useState([])
@@ -59,6 +60,8 @@ export default function EmailList({ initEmails }) {
           rows={4}
         />
       </div>
+
+      <ButtonSend dados={dados} emails={emails} />
     </>
   )
 }
