@@ -1,4 +1,5 @@
 import { HTTPClient } from '@/infra/httpClient'
+import { STATUS_CODES } from 'http'
 
 const token = '56b17ef7-5f58-4e63-a717-3e6489cebd94'
 const BASE_URL = 'http://localhost:4010/mailing-lists'
@@ -10,7 +11,6 @@ export const EmailApi = {
         token: `${token}`,
       },
     }).then((response) => {
-      console.log(response)
       return response
     })
   },
@@ -24,7 +24,6 @@ export const EmailApi = {
       },
       body: data,
     }).then((response) => {
-      console.log(response)
       return response
     })
   },

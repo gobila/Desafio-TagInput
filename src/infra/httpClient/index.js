@@ -10,6 +10,6 @@ export async function HTTPClient(url, { headers, body, ...options }) {
     if (respostaDoServidor.ok) {
       return respostaDoServidor.json()
     }
-    throw new Error('Falha na requisição de pegar os dados da api')
+    throw new Error('Falha na requisição de pegar os dados da api', respostaDoServidor.status)
   })
 }
