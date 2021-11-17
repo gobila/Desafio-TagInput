@@ -1,0 +1,18 @@
+.tagInput{
+  &__tag{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 6px;
+  }
+  &__chip{
+    background-color: #4fa9f1;
+    color:#000;
+    margin:2px;
+  }
+  &__button{
+    margin-bottom:20px;
+    :hover{
+      opacity: 0.5;
+    }
+  }
+}

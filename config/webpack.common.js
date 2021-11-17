@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', 'scss'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css',],
     alias: {
       '@': path.join(__dirname, '..', 'src'),
     },
@@ -26,6 +26,9 @@ module.exports = {
         test: /\.(js|jsx|tsx|ts)$/,
         enforce: 'pre',
         use: ['source-map-loader'],
+      },{
+        test: /\.(sa|sc|c)ss$/i,
+        use: ["style-loader", "css-loader",  "sass-loader"],
       },
     ],
   },

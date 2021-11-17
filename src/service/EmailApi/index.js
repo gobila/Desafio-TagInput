@@ -15,7 +15,8 @@ export const EmailApi = {
     })
   },
   async sendEmails(data) {
-    return HTTPClient(`${BASE_URL}/${id}`, {
+    const url = 'http://localhost:4010/mailing-lists/54ef959d-4d7a-bd1e-2495-947fb0ffde7b'
+    return HTTPClient(url, {
       method: 'PATCH',
       headers: {
         token: `${token}`,

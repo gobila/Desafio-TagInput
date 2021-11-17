@@ -1,8 +1,10 @@
-import { Chip, TextField } from '@material-ui/core'
+import { Button, Chip, TextField } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import { withStyles } from '@material-ui/core/styles'
+import './styles'
 
-export default function TagsInput({ tags, changeValue, deleting, errors }) {
+export default function TagsInput({ tags, changeValue, deleting, errors, onClick }) {
   const [emailTags, setEmailTags] = useState([])
   const deleted = deleting
 
@@ -11,13 +13,20 @@ export default function TagsInput({ tags, changeValue, deleting, errors }) {
   }, [tags])
 
   // console.log(errors)
-
+  const styles = {
+    root: {
+      background: 'black',
+    },
+    input: {
+      color: 'red',
+    },
+  }
   return (
     <div>
       <TextField
         tags={emailTags}
         onBlur={changeValue}
-        // fullWidth
+        fullWidth
         variant="outlined"
         id="emailsTags"
         name="email"
@@ -26,13 +35,29 @@ export default function TagsInput({ tags, changeValue, deleting, errors }) {
         // inputRef={register}
         error={errors}
         helperText={errors ? errors : ' '}
-        // {...props}
         InputProps={{
+          className: 'tagInput__tag',
           startAdornment: emailTags.map((item) => (
-            <Chip key={item} tabIndex={-1} label={item} onDelete={() => deleted(item)} />
+            <Chip
+              className="tagInput__chip"
+              style={{ backgroundColor: '#4fa9f1', color: '#FFF' }}
+              key={item}
+              tabIndex={-1}
+              label={item}
+              onDelete={() => deleted(item)}
+              // color="primary"
+            />
           )),
         }}
       />
+      <Button
+        variant="contained"
+        className="tagInput__button"
+        style={{ backgroundColor: '#009688', color: '#FFF', marginBottom: '20px' }}
+        onClick={onClick}
+      >
+        Enviar
+      </Button>
     </div>
   )
 }
@@ -45,4 +70,5 @@ TagsInput.propTypes = {
   changeValue: PropTypes.func,
   deleting: PropTypes.func,
   errors: PropTypes.string,
+  onClick: PropTypes.func,
 }

@@ -1,0 +1,15 @@
+.buttonFake{
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.5;
+  &__alert{
+    margin-top: 15px;
+    color: red;
+  }
+  &-cancel{
+    background-color: tomato !important;
+  }
+  &-confirm{
+    background-color: skyblue !important;
+  }
+}
