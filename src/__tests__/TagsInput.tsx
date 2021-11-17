@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable no-useless-escape */
 import React from 'react'
 import TagsInput from '@/components/TagsInput'
 import { cleanup, render, screen } from '@testing-library/react'

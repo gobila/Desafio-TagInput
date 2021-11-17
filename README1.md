@@ -16,3 +16,5 @@
 7.1 - separa a validação como um hook 
 
 8 - o gitGuardian fica reclamando do token, entao eu adicionei um env.local para ele para entretanto nao faz tanta diferença ja q o token não é real
+
+9 - precisei excluir definir regras de exclução do lint no arquivo de testes devido ao regex usado e ao async vazio do modelo

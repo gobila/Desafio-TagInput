@@ -1,6 +1,6 @@
 import { HTTPClient } from '@/infra/httpClient'
 
-const token = process.env.token;
+const token = process.env.token
 const BASE_URL = 'http://localhost:4010/mailing-lists'
 const id = '54ef959d-4d7a-bd1e-2495-947fb0ffde7b'
 export const EmailApi = {
