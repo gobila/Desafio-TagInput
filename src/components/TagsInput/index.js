@@ -2,7 +2,7 @@ import { Button, Chip, TextField } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import './styles'
+import './styles/index.scss'
 
 export default function TagsInput({ tags, changeValue, deleting, errors, onClick }) {
   const [emailTags, setEmailTags] = useState([])
