@@ -1,32 +1,39 @@
-# TagsInput
+## Desafio TagInput
+A proposta desse desafio foi criar um componente para inserir tag ao se digitar e-mails no campo de input
 
-`TagsInput` é um componente react que cria tags a partir de valores inseridos em um campo de input. Este repositório possui a implementação visual do componente, e deverá servir de base para os desafios de recrutamento da Raro Labs.
+### TELA
+[<img src="docs\telas\768.jpeg" width="250"/>](docs\telas\768.jpeg)
 
-## Setup
+### Tecnologias usadas
+- React;
+- Material Ui;
+- SASS;
+- JEST;
+- YUP (instalado, mas não utilizado);
+- ESLint (substituiu o TSLint);
 
-Para a inicialização deste projeto, pode-se usar os gerenciadores `npm` e `yarn`. Abaixo, segue exemplo de instalação de dependências de inicialização do serviço.
+### Mudança de Linter
 
-```sh
-npm install
-npm start
-```
+A mudança de Lint aconteceu por estar tendo vários conflitos no VS Code e a dificuldade de resolvê-los, provavelmente pela descontinuidade do projeto. Com isso resolvi trocar pelo ESLint, que tem também possui suporte a TS.
 
-## Testes
+### Problemas com uso do YUP para validação
 
-Para executar os tests, executar o comando `npm test`. O mesmo pode ser feito com o `yarn`.
+Resolvi usar o YUP para fazer as validações do projeto e não me preocupar tanto com isso, entretanto a complexidade para integrar com o input do Material UI da forma com desejava seria tão custosa quanto criar um arquivo separado para validação. Nesse caso para ter mais controle foi criado um hook simples para definir o campo valido ou invalido se uma determinada condição for satisfeita.
 
-## mock da API
+### Problemas com o mock de Api
 
-Para o requisito de "buscar" e "escrever" dados na API, sugerimos o uso do contrato da API descrito no arquivo `swagger.yaml`. Sugere-se o uso das rotas `mailing-lists/{id}`, com os verbos de `GET` e `PATCH`, para a busca e escrita, respectivamente.
+Tive alguns problemas de subir a roda de `PATCH` com o Prism e onde sempre recebia erro 500 ou 422, ao procurar uma solução achei alguns relatos parecidos no github do projeto. Decidir usar o Postman para fazer o mock da api então recebi de JSON invalido ou erro de servidor, ao ir atrás de solução notei que o [swagger.io](https://editor.swagger.io) avisava para problemas na rota utilizando `FECTH` mais so sobre o assunto. Tentando solucionar o problema descobri ao comentar a linha 119 obtinha resposta.
+Isso deve acontecer pois o mock deve esperar algum parâmetro para o corpo da requisição, apesar de tentar diferentes formas e comparar com a solicitação e resposta no [swagger.io](https://editor.swagger.io), a alternativa foi realmente comentar a linha.
 
-Não é necessário escrever a API. Sugerimos que você use o [stoplight/prism](https://meta.stoplight.io/docs/prism/ZG9jOjky-installation), para geração de mocks. Para isso, basta executar os comandos abaixo, estando na pasta raiz deste projeto. O último comando deverá iniciar uma API com todos as rotas e regras descritas no documento, e poderá ser consumida no endereço `http://localhost:4010`.
+### Testes
 
-```bash
-# instalação do prism. A instalação precisa ser executada somente uma vez
-npm install -g @stoplight/prism-cli
-# or
-yarn global add @stoplight/prism-cli
+A última coisa que fiz foram os testes, entretanto não fiz todos.
 
-# iniciar o servidor de mocks
-prism mock -d swagger.yaml
-```
+Criei um teste para ver se o input estava recebendo o valor digitado.
+
+Implementei o teste de renderizar caso o `TAB` seja pressionado, pela natureza da função de `onBlur` que utilizai no input, o novo valor não é realmente adicionado a tela, entretanto através do props `changeValue` toda vez que é pressionado o `TAB` a função de `onBlur` é chamada. Esse caso pode ser necessário utilizar também testes te integração.
+
+### Outras Instruções
+
+As instruções iniciais desse desafio e que não foram alteradas estão no diretório `docs` ou você pode clicar [aqui](docs\Instruções.md)
+
