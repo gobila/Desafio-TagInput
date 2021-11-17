@@ -1,0 +1,20 @@
+.emailList{
+  border: solid 1px;
+  border-radius: 8px;
+  padding: 8px;
+  &__label{
+    margin: 0px;
+    padding: 2px;
+    width: auto;
+  }
+  &__chip{
+    margin: 3px;
+    background-color: green;
+  }
+  &__subject{
+    margin-top:15px;
+  }
+  &__content{
+    margin-top:15px;
+  }
+}

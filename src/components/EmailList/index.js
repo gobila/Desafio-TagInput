@@ -1,39 +1,64 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { EmailApi } from '@/service/EmailApi'
-import { Chip } from '@material-ui/core'
+import { Chip, TextField } from '@material-ui/core'
+import './styles'
 
 export default function EmailList({ initEmails }) {
   const [dados, setDados] = useState([])
   const [emails, setEmails] = useState([])
   const emailApi = EmailApi
 
-  // const getEmails = async () => {
-  //   const getEmail = await emailApi.getEmails()
-  //   setDados(getEmail)
-  // }
-  useEffect(async () => {
+  const getEmails = async () => {
     const getEmail = await emailApi.getEmails()
     setDados(getEmail)
-    setEmails(getEmail.emails)
-  }, [])
+  }
+  useEffect(() => {
+    getEmails()
+    const getEmail = emailApi.getEmails()
+    setDados(getEmail)
+    setEmails([...emails, ...initEmails])
+  }, [initEmails])
 
   return (
     <>
-      <div>
-        {/* {emails.map((i) => (
-          <Chip key={i} tabIndex={-1} label={i} />
-        ))} */}
+      <div className="emailList">
+        <p className="emailList__label">Emails Adicionados</p>
+        {emails.map((item) => (
+          // eslint-disable-next-line react/jsx-key
+          <Chip
+            key={item}
+            tabIndex={-1}
+            label={item}
+            className="emailList__chip"
+            style={{ background: '#3f51b5', color: '#FFF' }}
+          />
+        ))}
       </div>
-
-      {emails.map((item) => (
-        // eslint-disable-next-line react/jsx-key
-        <div className="emailList__Tags">
-          <Chip key={item} tabIndex={-1} label={item} />
-        </div>
-      ))}
-      <div>{dados.subject}</div>
-      <div>{dados.content}</div>
+      <div className="emailList__subject">
+        <TextField
+          fullWidth
+          variant="outlined"
+          id="subject"
+          name="Assunto"
+          label="Assunto"
+          placeholder={dados.subject}
+          defaultValue={dados.subject}
+        />
+      </div>
+      <div className="emailList__content">
+        <TextField
+          fullWidth
+          variant="outlined"
+          id="content"
+          name="menssagem"
+          label="Menssagem"
+          placeholder={dados.content}
+          // defaultValue={dados.content}
+          multiline
+          rows={4}
+        />
+      </div>
     </>
   )
 }

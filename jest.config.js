@@ -28,5 +28,6 @@ module.exports = {
     '@/(.*)': '<rootDir>/src/$1',
     '.+\\.(jpg|jpeg|png|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/src/fileMock.js',
     '.+\\.scss$': 'identity-obj-proxy',
+    '\\.(css|jpg|png)$': '<rootDir>/empty-module.js',
   },
 }
